@@ -1,0 +1,96 @@
+########## LANGUAGE #########
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+on_ft = 'graphql'
+
+[[plugins]]
+repo = 'kylef/apiblueprint.vim'# Language support Api blueprint
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'rhysd/rust-doc.vim'# open rust documentation for token under cursor
+on_ft = ['rust']
+
+[[plugins]]
+repo = 'mhinz/vim-rfc'# Language support rfc
+on_ft = [ 'RFC' ]
+
+[[plugins]]
+repo = 'eraserhd/parinfer-rust'# Lisp languages easier development
+on_ft = ['lisp', 'clojure']
+build = 'cargo build --release'
+
+[[plugins]] # MDX file support
+repo = 'jxnblk/vim-mdx-js'
+on_ext = ["mdx"]
+
+[[plugins]]
+repo = 'stephpy/vim-yaml'
+on_ft = ['yaml']
+
+[[plugins]] # Highlight html`` and css`` in typescript code
+repo = 'jonsmithers/vim-html-template-literals'
+on_ft = ['typescript']
+
+[[plugins]]
+repo = 'neovimhaskell/haskell-vim'# Language support haskell
+on_ft = ['haskell']
+
+[[plugins]]
+repo = 'heavenshell/vim-jsdoc'
+on_cmd = 'JsDocFormat'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'tibabit/vim-templates'
+#on_cmd = 'Template'
+
+#[[plugins]]
+#repo = 'maxmellon/vim-jsx-pretty'
+#on_ft = ['javascript', 'typescript', 'typescriptreact']
+
+#[[plugins]]
+#repo = 'leafOfTree/vim-vue-plugin'
+#on_ft = 'vue'
+
+########## NAVIGATION #########
+[[plugins]]
+repo = 'junegunn/vim-easy-align'# align paragraph of text
+on_cmd = 'EasyAlign'
+
+[[plugins]]
+repo = 'liuchengxu/vista.vim' # Similar to tagbar but use lsp
+on_cmd = ['Vista']
+
+[[plugins]] # Settings use to make working with the location window smoother
+repo = 'romainl/vim-qf'
+lazy = 1
+
+########## THEMING #########
+[[plugins]]
+repo = 'edkolev/tmuxline.vim'# Generate tmuxbar style based on vim airline theme
+on_cmd = ['Tmuxline']
+
+########## UTILS #########
+[[plugins]]
+repo = 'lambdalisue/suda.vim' # read and write as sudo user
+on_cmd = ['SudaRead', 'SudaWrite']
+
+[[plugins]]
+repo = 'vim-scripts/loremipsum'# Generate lorem ipsum text
+on_cmd = ['LoremIpsum']
+
+[[plugins]] # Focused mode when using :Goyo cmd
+repo = 'junegunn/goyo.vim'
+on_cmd = ['Goyo']
+
+[[plugins]]
+repo = 'liuchengxu/vim-which-key'
+on_cmd = ['WhichKey', 'WhichKey!']
+
+#[[plugins]] # Usefull to create fake lorem ipsum paragraph of tex
+#repo = 'tkhren/vim-fake'

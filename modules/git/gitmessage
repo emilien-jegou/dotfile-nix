@@ -1,0 +1,14 @@
+# ** What is the motivation for the change?
+# ** How does it address the problem?
+# ** Are there any side effects?
+
+# Closes #123, #245...
+
+# *** Types reminder ***
+# feat (new feature for the user, not a new feature for build script)
+# fix (bug fix for the user, *not a fix to a build script*)
+# docs (changes to the documentation)
+# style (formatting, missing semi colons, lint...)
+# refactor (a code that neither fix bug or adds a feature, eg. moving functions)
+# test (new tests, refactoring tests; no production code change)
+# chore (change not visible by the users (e.g. CI, gitignore...)

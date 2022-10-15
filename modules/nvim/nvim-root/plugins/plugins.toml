@@ -1,0 +1,134 @@
+########## LANGUAGE #########
+[[plugins]]
+repo = 'neoclide/coc.nvim'# LSP plugin
+build = 'yarn install'
+
+[[plugins]]
+repo = 'sheerun/vim-polyglot'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter' # Easy commenting for different ft
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+build = 'npm install'
+on_ft = ['javascript', 'typescript']
+
+[[plugins]]
+repo = 'xolox/vim-notes'
+#on_ft = ['text']
+
+[[plugins]]
+repo = 'brooth/far.vim'
+#[[plugins]]
+#repo = 'ptzz/lf.vim'
+
+#[[plugins]]
+#repo = 'voldikss/vim-floaterm'
+
+[[plugins]]
+repo = 'idanko/lf.vim'
+
+[[plugins]]
+repo = 'rbgrouleff/bclose.vim'
+
+[[plugins]]
+repo = 'ActivityWatch/aw-watcher-vim'
+
+[[plugins]]
+repo = 'preservim/tagbar'
+
+#[[plugins]]
+#repo = 'Shougo/neosnippet.vim'
+
+#[[plugins]]
+#repo = 'Shougo/neosnippet-snippets'
+
+#[[plugins]] # ctags management for vim, autogeneration on save
+#repo = 'ludovicchabant/vim-gutentags'
+
+#[[plugins]]# ctags management for vim, autogeneration on save
+#repo = 'skywind3000/gutentags_plus'
+#depends = 'ludovicchabant/vim-gutentags'
+
+#[[plugins]]
+#repo = 'christoomey/vim-conflicted'
+
+########## GIT #########
+[[plugins]]
+repo = 'tpope/vim-fugitive' # git wrapper
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter' # Git bar
+
+[[plugins]] # Hightlight git conflicts in source code
+repo = 'rhysd/conflict-marker.vim'
+
+########## NAVIGATION #########
+[[plugins]]
+repo = 'tpope/vim-repeat' # support plugin for the '.' keybind
+
+[[plugins]]
+repo = 'svermeulen/vim-easyclip' # use m instead of d for yank delete. share yanks.
+
+#[[plugins]]
+#repo = 'Lokaltog/neoranger' # Ranger navigation in vim
+
+[[plugins]]
+repo = 'tpope/vim-surround' # Surrounding logic in vim for (, [, <..>, etc..
+
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'# Better navigation using tmux
+
+[[plugins]]
+repo = 'benmills/vimux'# vim/tmux interaction
+
+[[plugins]]
+repo = 'melonmanchan/vim-tmux-resizer'# Resize tmux pane and vim split with same shortcut
+
+[[plugins]]
+repo = 'junegunn/fzf' # fzf dependency for fzf.vim
+build = './install --all' #verify
+merged = 0 # verify
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'# file search and AG
+depends = 'fzf' # verify
+
+########## THEMING #########
+
+[[plugins]]
+repo = 'powerline/powerline' # statusline plugin
+
+[[plugins]]
+repo = 'vim-airline/vim-airline' # styling of the tabline -> 
+
+[[plugins]] # Preview color in src code
+repo = 'norcalli/nvim-colorizer.lua'
+#repo = 'ap/vim-css-color'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons' # Icons on tabline, ranger, airline, ect...
+
+[[plugins]]
+repo = 'DunZzzz/custom-airline-theme'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+build = ':TSUpdate'
+
+########## UTILS #########
+[[plugins]]
+repo = 'tpope/vim-pathogen' # Static plugins loading
+
+[[plugins]]
+repo = 'gioele/vim-autoswap' # Stop with the swapfile message, bugfix
+
+[[plugins]]
+repo = 'tpope/vim-sensible' # Better default settings
+
+[[plugins]]
+repo = 'tpope/vim-dispatch' # Utility plugin, dispatch event async
+
+[[plugins]]
+repo = 'xolox/vim-misc'# Requirement for vim-notes

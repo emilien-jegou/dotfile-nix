@@ -1,0 +1,8 @@
+{
+	"coc.preferences.useQuickfixForLocations": true,
+	"coc.source.emoji.filetypes": null,
+	"diagnostic.errorSign": "⚠",
+	"diagnostic.warningSign": "⚠",
+	"diagnostic.checkCurrentLine": false,
+	"diagnostic.format": "[%source] %message"
+}
