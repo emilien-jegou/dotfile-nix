@@ -112,6 +112,7 @@
         MOZ_ENABLE_WAYLAND = "1";
         ZK_NOTEBOOK_DIR = "$HOME/stuff/notes/";
         EDITOR = "nvim";
+        BROWSER= "firefox";
         DIRENV_LOG_FORMAT = "";
         ANKI_WAYLAND = "1";
         DISABLE_QT5_COMPAT = "0";
