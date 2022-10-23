@@ -65,6 +65,7 @@ in {
        doco = "docker-compose";
        grc = "git rebase --continue";
        nd = "nix develop -c $SHELL";
+       hg = "history | grep";
        rebuild = "doas nixos-rebuild switch --flake $NIXOS_CONFIG_DIR --fast; notify-send 'Rebuild complete\!'";
       };
     };

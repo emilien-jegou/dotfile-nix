@@ -8,7 +8,6 @@ in {
     config = mkIf cfg.enable {
         home.packages = with pkgs; [ tmux xclip ];
 
-        # configuration
         home.file.".tmux.conf".source = ./tmux.conf;
     };
 }

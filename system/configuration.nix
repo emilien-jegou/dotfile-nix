@@ -4,44 +4,13 @@
     # Remove unecessary preinstalled packages
     environment.defaultPackages = [ ];
 
-    programs.zsh.enable = true;
-
     # Laptop-specific packages (the other ones are installed in `packages.nix`)
     environment.systemPackages = with pkgs; [
       acpi
       tlp
       git
+      nix-index
     ];
-
-    # Install fonts
-    fonts = {
-      fonts = with pkgs; [
-        jetbrains-mono
-        roboto
-        openmoji-color
-        (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-        ];
-
-        fontconfig = {
-          hinting.autohint = true;
-          defaultFonts = {
-            emoji = [ "OpenMoji Color" ];
-          };
-        };
-      };
-
-
-    # Wayland stuff: enable XDG integration, allow sway to use brillo
-    xdg = {
-      portal = {
-        enable = true;
-        extraPortals = with pkgs; [
-          xdg-desktop-portal-wlr
-          xdg-desktop-portal-gtk
-        ];
-        gtkUsePortal = true;
-      };
-    };
 
     # Nix settings, auto cleanup and enable flakes
     nix = {
@@ -53,9 +22,9 @@
         options = "--delete-older-than 7d";
       };
       extraOptions = ''
-            experimental-features = nix-command flakes
-            keep-outputs = true
-            keep-derivations = true
+        experimental-features = nix-command flakes
+        keep-outputs = true
+        keep-derivations = true
       '';
     };
 
@@ -107,18 +76,16 @@
       NIXOS_CONFIG_DIR = "$HOME/.config/nixos/";
       XDG_DATA_HOME = "$HOME/.local/share";
       PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
-      GTK_RC_FILES = "$HOME/.local/share/gtk-1.0/gtkrc";
-      GTK2_RC_FILES = "$HOME/.local/share/gtk-2.0/gtkrc";
-      MOZ_ENABLE_WAYLAND = "1";
+      GTK_RC_FILES = "$HOME/.local/share/gtk-1.0/gtkrc"; # move this line ?
+      GTK2_RC_FILES = "$HOME/.local/share/gtk-2.0/gtkrc"; # move this line ?
       ZK_NOTEBOOK_DIR = "$HOME/stuff/notes/";
       EDITOR = "nvim";
       BROWSER= "firefox";
       DIRENV_LOG_FORMAT = "";
-      ANKI_WAYLAND = "1";
       DISABLE_QT5_COMPAT = "0";
     };
 
-    # Security 
+    # Security
     security = {
       sudo.enable = false;
       doas = {
@@ -130,9 +97,9 @@
         }];
       };
 
-        # Extra security
-        protectKernelImage = true;
-      };
+      # Extra security
+      protectKernelImage = true;
+    };
 
     # Sound
     sound = {
@@ -149,7 +116,6 @@
       pulse.enable = true;
     };
 
-    # Disable bluetooth, enable pulseaudio, enable opengl (for Wayland)
     hardware = {
       bluetooth.enable = true;
       opengl = {
@@ -160,20 +126,4 @@
 
     # Do not touch
     system.stateVersion = "20.09";
-
-    # Login manager
-    services.xserver.enable = true;
-    services.xserver.displayManager.sddm.enable = true;
-    services.xserver.desktopManager.plasma5.enable = true;
-    services.xserver.displayManager.defaultSession = "plasmawayland";
-    services.xserver.desktopManager.plasma5.excludePackages = with pkgs.libsForQt5; [
-      elisa
-      khelpcenter
-      oxygen
-      print-manager
-      konsole
-    ];
-
-    # GTK themes are not applied in wayland applications
-    programs.dconf.enable = true;
   }

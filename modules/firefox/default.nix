@@ -8,24 +8,24 @@ in {
   config = mkIf cfg.enable {
 
     # Home Manager setup
-    home.sessionVariables = {
-      MOZ_ENABLE_WAYLAND = 1;
-    };
+    #home.sessionVariables = {
+    #  MOZ_ENABLE_WAYLAND = 1;
+    #};
 
     # TODO: make this optional for non plasma desktop
-    nixpkgs.config.firefox.enablePlasmaBrowserIntegration = true;
+    #nixpkgs.config.firefox.enablePlasmaBrowserIntegration = true;
 
     programs.firefox = {
       enable = true;
 
       # Force wayland install
       # TODO: make this configuration depend on desktop manager
-      package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
-        forceWayland = true;
-        extraPolicies = {
-          ExtensionSettings = {};
-        };
-      };
+      #package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+      #  forceWayland = true;
+      #  extraPolicies = {
+      #    ExtensionSettings = {};
+      #  };
+      #};
 
      # Install extensions from NUR
      extensions = with pkgs.nur.repos.rycee.firefox-addons; [

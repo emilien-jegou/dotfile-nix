@@ -3,8 +3,8 @@
 {
     home.stateVersion = "21.03";
     imports = [
-        # desktop environment
-        ./plasma
+        # desktop
+        ./plasma-config
 
         # gui
         ./firefox
