@@ -18,6 +18,7 @@ in {
       gnupg
       bat
       unzip
+      exa
       lowdown
       zk
       grim

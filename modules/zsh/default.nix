@@ -27,7 +27,7 @@ in {
 
      # .zshrc
      initExtra = ''
-         export PASSWORD_STORE_DIR = "$XDG_DATA_HOME/password-store";
+         export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store";
      '';
 
      # path aliases: `cd ~dotfile` = `cd ~/.config/nixos`
@@ -46,6 +46,7 @@ in {
      shellAliases = {
        e = "$EDITOR";
        mkdir = "mkdir -vp";
+       mkd = "mkdir -vp";
        rm = "rm -rifv";
        mv = "mv -iv";
        cp = "cp -riv";
