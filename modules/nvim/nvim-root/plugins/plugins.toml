@@ -32,8 +32,9 @@ repo = 'idanko/lf.vim'
 [[plugins]]
 repo = 'rbgrouleff/bclose.vim'
 
-[[plugins]]
-repo = 'ActivityWatch/aw-watcher-vim'
+# dependency on activitywatch
+# [[plugins]]
+# repo = 'ActivityWatch/aw-watcher-vim'
 
 [[plugins]]
 repo = 'preservim/tagbar'
