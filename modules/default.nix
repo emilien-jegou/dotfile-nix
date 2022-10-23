@@ -15,6 +15,7 @@
         ./nvim
         ./zsh
         ./git
+        ./lf
         ./gpg
         ./tig
         ./direnv

@@ -14,6 +14,7 @@
 
         # cli
         nvim.enable = true;
+        lf.enable = true;
         zsh.enable = true;
         git.enable = true;
         gpg.enable = true;

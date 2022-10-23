@@ -1,0 +1,12 @@
+set hidden
+set icons
+set incsearch
+set nopreview
+set ratios 1
+#set number
+#set relativenumber
+
+cmd touch %touch $1 && lf -remote "send $id load" && lf -remote "send $id select $1"
+cmd mkdir %mkdir $1 && lf -remote "send $id load" && lf -remote "send $id select $1"
+cmd rename %mv "$f" "$1" && lf -remote "send $id load" && lf -remote "send $id select $1"
+cmd duplicate %cp -r "$f" "$f_" && lf -remote "send $id load" && lf -remote "send $id select $1"

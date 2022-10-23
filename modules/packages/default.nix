@@ -41,7 +41,6 @@ in {
       #firefox-devedition-bin
       flameshot
       git-lfs
-      lf
       nerdfonts
       stow
       silver-searcher
