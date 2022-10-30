@@ -88,6 +88,7 @@ set backupdir=/tmp
 set directory=/tmp
 set ff=unix
 set tabstop=2 shiftwidth=2 expandtab
+set mouse=
 
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.blade.php set filetype=html
