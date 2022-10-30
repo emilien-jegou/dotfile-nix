@@ -10,11 +10,11 @@ filetype indent off
 syntax on
 syntax enable
 
-"" PYTHON PATH
+""" PYTHON PATH
 let g:python3_host_prog = '/usr/bin/python'
 let g:python_host_prog  = '/usr/bin/python2'
 
-""""" CUSTOM
+"""""" CUSTOM
 nnoremap <Space> <Nop>
 let mapleader = " "
 
@@ -87,8 +87,16 @@ set backup
 set backupdir=/tmp
 set directory=/tmp
 set ff=unix
-set tabstop=2 shiftwidth=2 expandtab
 set mouse=
+set termguicolors
+set tabstop=2 shiftwidth=2 expandtab
+
+""" Code Folding
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+set paste
 
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.blade.php set filetype=html
@@ -104,50 +112,12 @@ endfunction
 
 nnoremap <silent> <M-d> :call Daily()<cr>
 
+colorscheme weynot2
+
+
+
+
 """"" PLUGINS
-
-" vim-template
-nmap <leader>t :Template<cr>
-let g:templates_directory = [
-      \ '~/.nvim/templates'
-      \ ]
-let g:license='AGPL'
-
-" ultisnips
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-" vim-clang-format
-augroup cc
-  au!
-  "autocmd FileType c,cpp map qd :ClangFormat<cr>
-  let g:clang_format#style_options = {
-        \ "BasedOnStyle": "WebKit",
-        \ "IndentWidth": 2,
-        \ "TabWidth": 2,
-        \ "UseTab": "Always",
-        \ "BreakBeforeBraces": "Linux",
-        \ "AlwaysBreakBeforeMultilineStrings": "true",
-        \ "AllowShortIfStatementsOnASingleLine": "false",
-        \ "AllowShortLoopsOnASingleLine": "false",
-        \ "AllowShortFunctionsOnASingleLine": "true",
-        \ "AccessModifierOffset": 0,
-        \ "IndentCaseLabels": "false",
-        \ "AlignEscapedNewlinesLeft": "false",
-        \ "AlignTrailingComments": "true",
-        \ "AllowAllParametersOfDeclarationOnNextLine": "false",
-        \ "AlignAfterOpenBracket": "true",
-        \ "PointerAlignment": "Right",
-        \ "SpaceAfterCStyleCast": "false",
-        \ "MaxEmptyLinesToKeep": 2,
-        \ "BreakBeforeBinaryOperators": "NonAssignment",
-        \ "BreakStringLiterals": "false",
-        \ "SortIncludes": "false",
-        \ "ContinuationIndentWidth": 2,
-        \ "NamespaceIndentation": "All"
-        \ }
-augroup END
 
 " vim-fugitive
 nmap <leader>gr :Gread<cr>
@@ -161,36 +131,20 @@ let g:EasyClipShareYanks = 1
 " fzf.vim
 nnoremap tt :Files<CR>
 nnoremap ta :Ag<CR>
-noremap <leader>s :Ag (\/\/\| \/\*)[ ]*(TODO\|BUG)<cr>
+noremap <leader>s :Ag (\/\/\| \/\*)[ ]*(TODO\|BUG\|FIXME)<cr>
 
-" neoranger
-"nmap <leader>f :RangerCurrentFile<cr>
-"let g:ranger_replace_netrw = 1
-
-set termguicolors
-
-"let ayucolor="dark"
-colorscheme weynot2
-
-"" deoplete.nvim
-"let g:deoplete#enable_at_startup = 1
-
-""" supertab
-let g:SuperTabDefaultCompletionType = "<C-n>"
-let g:SuperTabDefaultCompletionType = "context"
-
-"" vim-gitgutter
+""" vim-gitgutter
 let g:gitgutter_sign_added = '•'
 let g:gitgutter_sign_modified = '❯'
 let g:gitgutter_sign_removed = '•'
 let g:gitgutter_sign_removed_first_line = '❮'
 let g:gitgutter_sign_modified_removed = '❮'
 
-"" tmuxline
+""" tmuxline
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline#extensions#vista#enabled = 0
 
-"" vim-tmux-navigator
+""" vim-tmux-navigator
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
@@ -201,48 +155,35 @@ nnoremap <silent> <M-;> :TmuxNavigatePrevious<cr>
 
 let g:tmux_navigator_disable_when_zoomed = 1
 
-"" vim-tmux-resizer
+""" vim-tmux-resizer
 let g:tmux_resizer_no_mappings = 1
 nnoremap <silent> <M-H> :TmuxResizeLeft<cr>
 nnoremap <silent> <M-J> :TmuxResizeDown<cr>
 nnoremap <silent> <M-K> :TmuxResizeUp<cr>
 nnoremap <silent> <M-L> :TmuxResizeRight<cr>
 
-"" Code Folding
-set foldmethod=syntax
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
-set paste
-
-"" suda - sudo edit
+""" suda - sudo edit
 cnoreabbrev ws w suda://%
 
-"" vim notes
+""" vim notes
 let g:notes_suffix = '.txt'
 let g:notes_directories = [ '~/Daily/' ]
 let g:notes_list_bullets = ['∙', '◦', '▸', '▹', '▪', '▫']
 
 autocmd BufNewFile,BufRead */.git/COMMIT_EDITMSG setlocal filetype=notes " git commit messages now have notes formatting
 
-"" choosewin
-let g:choosewin_overlay_enable = 1
-
-"" jsx
+""" jsx
 let g:jsx_ext_required = 0
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
 highlight jsxPunct ctermbg=NONE ctermfg=9
 highlight jsxCloseString ctermbg=NONE ctermfg=9
 
-" coc
+""" coc
 
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
-
-" Better display for messages
-" set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=150
@@ -261,15 +202,6 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 " sqlcomplete
 let g:loaded_sql_completion = 0
 let g:omni_sql_no_default_maps = 1
@@ -282,17 +214,74 @@ function! SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" FIXME: hardcoded color should be in theme
+hi CocFloating guibg=#1A1A1A
+
 " fix on rust yield
 hi! def link rustReservedKeyword Keyword
 
-" WhichKey
-"autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
-"nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+function! s:find_duplicate()
+  execute '/^\(.*\)$\n\1$'
+endfunction
 
-"tsuqoyomi
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" TODO: install extension from coc configuration file
+" Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+function! CocInstallExtensions()
+  CocInstall coc-eslint coc-json coc-emoji coc-tsserver coc-rls
+endfunction
+
+nmap <silent> , <Plug>(coc-codeaction-selected)<cr>
+xmap <silent> , <Plug>(coc-codeaction-selected)<cr>
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap ;f :call CocActionAsync('refactor')<cr>
+nmap ;r :CocCommand document.renameCurrentWord<cr>
+
+" Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+hi CocErrorHighlight ctermbg=NONE ctermfg=6 gui=underline
+hi CocErrorSign ctermfg=6 guifg=#fc3423
+hi CocWarningSign ctermfg=4 guifg=#fc8623
+hi CocWarningHighlight ctermfg=4 guifg=#fc8623
+hi CocFloating guibg=#141414 guifg=#ffffff
+
+hi rustCommentLineDoc gui=bold guifg=#454159
+
+let g:htl_css_templates = 1
+
+""" lf
+let g:lf_replace_netrw = 1 " Open lf when vim opens a directory
+
+" hide the sidebar when lf is open
+autocmd! TermOpen
+autocmd  TermOpen * setlocal laststatus=0 noruler norelativenumber nonumber signcolumn=no
+      \| autocmd BufLeave <buffer> setlocal laststatus=2 ruler number relativenumber signcolumn=yes:2
+
+""" tsuqoyomi
 let g:tsuquyomi_disable_quickfix = 1
 
-" NerdCommenter
+""" NerdCommenter
 vmap \ :call nerdcommenter#Comment('x', 'toggle')<cr>
 nmap \ V:call nerdcommenter#Comment('x', 'toggle')<cr>
 
@@ -308,22 +297,6 @@ map <c-p> "+p
 
 let g:ft = ''
 
-" vim-racer
-let g:racer_cmd = "/home/emilien/.cargo/bin/racer"
-
-" dart
-let g:dart_style_guide = 2
-let g:dart_format_on_save = 1
-
-" Flutter
-autocmd FileType dart map qd :DartFmt<CR>
-autocmd FileType dart map zr :FlutterRun<CR>
-autocmd FileType dart map zs :FlutterVSplit<CR>
-
-" Typescript
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
-"autocmd FileType *.html set filetype=xml
-
 """ vim-airline
 let g:airline_theme='weynot_airline'
 let g:airline_powerline_fonts = 1
@@ -336,23 +309,11 @@ let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:airline#extensions#tabline#fnamecollapse = 0
 let g:airline#extensions#tabline#formatter = 'jsformatter'
 
-" Polyglot
-let g:polyglot_disabled = ['jsx', 'javascript', 'typescript', 'autoindent', 'vue']
-
-" Easyalign
+""" easyalign
 map < :EasyAlign<cr>
 
-""" vim-vue-plugin
-let g:vim_vue_plugin_load_full_syntax = 0
-let g:vim_vue_plugin_has_init_indent = 0
-let g:vim_vue_plugin_use_scss = 1
+""" Gtags
 
-" Jsdoc
-let g:jsdoc_formatter = 'tsdoc'
-let g:jsdoc_lehre_path = '/usr/bin/lehre'
-autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html map qf :JsDocFormat<cr>
-
-" Gtags
 " enable gtags module
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
 
@@ -371,16 +332,12 @@ noremap <silent> qs :GscopeFind s <C-R><C-W><cr>    " Find symbol (reference) un
 noremap <silent> qs :GscopeFind g <C-R><C-W><cr>    " Find symbol definition under cursor
 noremap <silent> qc :GscopeFind c <C-R><C-W><cr>    " Functions called by this function
 noremap <silent> qa :GscopeFind a <C-R><C-W><cr>    " Find places where current symbol is assigned
-"noremap <silent> <leader>ge :GscopeFind e <C-R><C-W><cr>                    " Find text string under cursor
-"noremap <silent> <leader>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>   " Find egrep pattern under cursor
-"noremap <silent> <leader>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>   " Find file name under cursor
-"noremap <silent> <leader>gd :GscopeFind d <C-R><C-W><cr>                    " Find files #including the file name under cursor
-"noremap <silent> <leader>gz :GscopeFind z <C-R><C-W><cr>                    " Find current word in ctags database
 
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+" FIXME: the directory is empty right now
 let g:neosnippet#snippets_directory='~/.nvim/snippets'
 set completeopt-=preview
 
@@ -388,89 +345,15 @@ imap <C-.>   <Plug>(neosnippet_expand_or_jump)
 smap <C-.>   <Plug>(neosnippet_expand_or_jump)
 xmap <C-.>   <Plug>(neosnippet_expand_target)
 
-"imap <expr><TAB>
-      "\ pumvisible() ? "\<C-n>" :
-      "\ neosnippet#expandable_or_jumpable() ?
-      "\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" Goyo
+""" goyo
 let g:goyo_width = 120
 
-set tabstop=2 shiftwidth=2 expandtab
-
 let g:prettier#config#use_tabs = 'false'
-
-" Notes files line width
-autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal textwidth=72 " 80 - 2 char for quotes
-autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal colorcolumn=73 " textwidth + 1
-autocmd BufNewFile,BufRead *.txt setlocal textwidth=80
-
-autocmd BufNewFile,BufRead *.txt setlocal textwidth=99
-autocmd BufNewFile,BufRead *.txt setlocal colorcolumn=100
-autocmd BufNewFile,BufRead *.txt setlocal textwidth=100
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-" Coc
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" TODO: replace in toml file:
-" Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-function! CocInstallExtensions()
-  CocInstall coc-eslint coc-json coc-emoji coc-tsserver coc-rls
-endfunction
-
-nmap <silent> , <Plug>(coc-codeaction-selected)<cr>
-xmap <silent> , <Plug>(coc-codeaction-selected)<cr>
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-nmap ;f :call CocActionAsync('refactor')<cr>
-nmap ;r :CocCommand document.renameCurrentWord<cr>
-
-"augroup mygroup
-"  autocmd!
-"  " Setup formatexpr specified filetype(s).
-"  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-"  " Update signature help on jump placeholder
-"  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-"augroup end
-"
-" Use <TAB> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
-"
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-hi CocErrorHighlight ctermbg=NONE ctermfg=6 gui=underline
-" hi CocErrorHighlight ctermfg=Red ctermbg=NONE
-hi CocErrorSign ctermfg=6 guifg=#fc3423
-hi CocWarningSign ctermfg=4 guifg=#fc8623
-hi CocWarningHighlight ctermfg=4 guifg=#fc8623
-hi CocFloating guibg=#141414 guifg=#ffffff
-
-hi rustCommentLineDoc gui=bold guifg=#454159
-
-let g:htl_css_templates = 1
-let g:lf_replace_netrw = 1 " Open lf when vim opens a directory
-
-autocmd! TermOpen
-autocmd  TermOpen * setlocal laststatus=0 noruler norelativenumber nonumber signcolumn=no
-      \| autocmd BufLeave <buffer> setlocal laststatus=2 ruler number relativenumber signcolumn=yes:2
-
-" Prettier
+""" prettier
 autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html map qd :PrettierAsync<cr>
 
 let g:prettier#config#use_tabs = 'false'
@@ -479,18 +362,36 @@ let g:prettier#autoformat_config_files = ['~/.prettierc.js']
 autocmd BufNewFile,BufRead */.git/COMMIT_EDITMSG setlocal filetype=notes
 autocmd BufNewFile,BufRead *.txt setlocal filetype=notes
 
-" Coc
-"autocmd User CocOpenFloat call nvim_win_set_config(g:coc_last_float_win, {'relative': 'editor', 'row': 1, 'col': 0})
-"autocmd User CocOpenFloat call nvim_win_set_width(g:coc_last_float_win, 9999)
-
-hi CocFloating guibg=#1A1A1A
-
-"inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Coc
-function! s:find_duplicate()
-    execute '/^\(.*\)$\n\1$'
-endfunction
-
-" Tagbar
+""" tagbar
 map qe :Tagbar<cr>
+
+"""""" LANGUAGES
+
+""" typescript
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
+""" notes & txt
+autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal textwidth=72 " 80 - 2 char for quotes
+autocmd BufNewFile,BufRead COMMIT_EDITMSG setlocal colorcolumn=73 " textwidth + 1
+autocmd BufNewFile,BufRead *.txt setlocal textwidth=80
+
+autocmd BufNewFile,BufRead *.txt setlocal textwidth=99
+autocmd BufNewFile,BufRead *.txt setlocal colorcolumn=100
+autocmd BufNewFile,BufRead *.txt setlocal textwidth=100
+
+
+
+""" vim-vue-plugin
+"let g:vim_vue_plugin_load_full_syntax = 0
+"let g:vim_vue_plugin_has_init_indent = 0
+"let g:vim_vue_plugin_use_scss = 1
+
+""" dart
+"let g:dart_style_guide = 2
+"let g:dart_format_on_save = 1
+
+""" Flutter
+"autocmd FileType dart map qd :DartFmt<CR>
+"autocmd FileType dart map zr :FlutterRun<CR>
+"autocmd FileType dart map zs :FlutterVSplit<CR>
+
