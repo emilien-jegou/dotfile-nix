@@ -1,0 +1,5 @@
+
+# TODO
+- [ ] Collocate vim plugins and keybind definition
+- [ ] plasma colorscheme in plasma-config module
+   -> See ease of integration with plasma-manager
