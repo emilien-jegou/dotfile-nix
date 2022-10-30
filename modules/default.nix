@@ -9,6 +9,7 @@
         # gui
         ./firefox
         ./termite
+        ./alacritty
         ./tmux
 
         # cli
