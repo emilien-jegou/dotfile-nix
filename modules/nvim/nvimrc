@@ -104,9 +104,8 @@ au BufRead,BufNewFile *.jar,*.war,*.ear,*.sar,*.rar set filetype=zip
 au BufReadCmd *.jar call zip#Browse(expand("<amatch>"))
 
 fu! Daily()
-  let l:path=$HOME.'/Daily/'.strftime('%Y-%m-%d').'.txt'
+  let l:path=$HOME.'/daily/'.strftime('%Y-%m-%d').'.txt'
   silent execute('!touch ' . l:path)
-  "silent execute('!echo ' . strftime('%Y-%m-%d') . ' > ~/.nvim/Daily/ ' . l:path . '/daily.notes')
   execute ':e ' l:path
 endfunction
 
