@@ -105,6 +105,7 @@ au BufReadCmd *.jar call zip#Browse(expand("<amatch>"))
 
 fu! Daily()
   let l:path=$HOME.'/daily/'.strftime('%Y-%m-%d').'.txt'
+  silent execute('!'.$HOME.'/daily/.clear_empty_notes.sh')
   silent execute('!touch ' . l:path)
   execute ':e ' l:path
 endfunction
@@ -112,9 +113,6 @@ endfunction
 nnoremap <silent> <M-d> :call Daily()<cr>
 
 colorscheme weynot2
-
-
-
 
 """"" PLUGINS
 

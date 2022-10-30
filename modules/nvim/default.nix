@@ -9,6 +9,7 @@ in {
         home.file.".nvimrc".source = ./nvimrc;
         home.file.".nvim".source = ./nvim-root;
         home.file.".config/nvim".source = ./nvim-config;
+        home.file."daily/.clear_empty_notes.sh".source = ./clear_empty_notes;
 
         home.file = { ".cache/nvim/packages/repos/github.com/shougo/dein.vim".source = pkgs.fetchFromGitHub {
             owner = "Shougo";

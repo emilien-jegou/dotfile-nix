@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+SCRIPT=$(realpath "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
+
+for it in $SCRIPTPATH/*.txt; do
+  echo $it
+  LINE_COUNT=$(cat "$it" | grep -v '^\s*$' | wc -l)
+
+  if [ "$LINE_COUNT" -le 1 ]; then
+    echo "deleting empty note '$it'..";
+    rm "$it";
+  fi;
+done;
