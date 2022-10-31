@@ -32,15 +32,23 @@
     boot = {
       cleanTmpDir = true;
       loader = {
-        systemd-boot.enable = true;
-        systemd-boot.editor = false;
-        efi.canTouchEfiVariables = true;
-        timeout = 30;
-        efi.efiSysMountPoint = "/boot/efi";
-      };
-    };
+        efi = {
+          canTouchEfiVariables = true;
+          efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+        };
+        grub = {
+          enable = false;
+          efiSupport = true;
+          #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+          device = "nodev";
+        };
+       systemd-boot.enable = false;
+       #systemd-boot.editor = false;
+       timeout = 30;
+     };
+   };
 
-    boot.supportedFilesystems = [ "ntfs" ];
+   boot.supportedFilesystems = [ "ntfs" ];
 
     # Set up locales (timezone and keyboard layout)
     time.timeZone = "Europe/Paris";
