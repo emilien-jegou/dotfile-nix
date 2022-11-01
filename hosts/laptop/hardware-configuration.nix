@@ -60,22 +60,17 @@ in {
       Option "nvidiaXineramaInfoOrder" "DP-4"
       Option "metamodes" "DP-4: nvidia-auto-detect, DP-2: nvidia-auto-detect"
   '';
-  specialisation = {
-    external-display.configuration = {
-      system.nixos.tags = [ "external-display" ];
-      hardware.nvidia.prime.offload.enable = lib.mkForce false;
-      hardware.nvidia.powerManagement.enable = lib.mkForce false;
+
+  hardware.nvidia.powerManagement.enable = lib.mkForce false;
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    prime = {
+      sync.enable = false; # gpu always
+      offload.enable = false; # gpu on demand
+      #nvidiaBusId = "PCI:10:0:0"; #epgu
+      nvidiaBusId = "PCI:1:0:0"; # dedicated gpu
+      intelBusId = "PCI:0:2:0";
     };
-  };
-
-
-  hardware.nvidia.prime = {
-    offload.enable = true;
-
-    # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
-    intelBusId = "PCI:0:2:0";
-
-    # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
-    nvidiaBusId = "PCI:1:0:0";
   };
 }
