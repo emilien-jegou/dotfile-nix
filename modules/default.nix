@@ -5,6 +5,7 @@
     imports = [
         # desktop
         ./plasma-config
+        ./latte-dock
 
         # gui
         ./firefox

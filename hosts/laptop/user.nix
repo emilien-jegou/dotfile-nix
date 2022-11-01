@@ -6,6 +6,7 @@
     config.modules = {
       # desktop
       plasma-config.enable = true;
+      latte-dock.enable = true;
 
       # gui
       firefox.enable = true;
