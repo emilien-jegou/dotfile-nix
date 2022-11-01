@@ -42,7 +42,7 @@
           #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
           device = "nodev";
         };
-       systemd-boot.enable = false;
+        systemd-boot.enable = false;
        #systemd-boot.editor = false;
        timeout = 30;
      };
