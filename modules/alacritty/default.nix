@@ -6,12 +6,7 @@ in {
   options.modules.alacritty = { enable = mkEnableOption "alacritty"; };
 
   config = mkIf cfg.enable {
-        # alacritty package
-        home.packages = with pkgs; [
-          alacritty
-        ];
-
-        # configuration
-        home.file.".config/alacritty/config".source = ./config;
+        home.packages = with pkgs; [ alacritty ];
+        home.file.".config/alacritty/alacritty.yml".source = ./alacritty.yml;
       };
     }

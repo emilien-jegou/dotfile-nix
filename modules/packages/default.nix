@@ -35,9 +35,10 @@ in {
       pqiv
       maintenance
       wf-recorder
-      termite
-      podman bitwarden
-      docker fd
+      podman
+      bitwarden
+      docker
+      fd
       #firefox-devedition-bin
       flameshot
       git-lfs
@@ -46,11 +47,11 @@ in {
       silver-searcher
       thefuck
       tig
-      tmux
       #toggldesktop
       zsh
       docker-compose
       nodejs
+      rustup
     ];
   };
 }
