@@ -10,6 +10,7 @@ in {
       pciutils
       materia-kde-theme
       whitesur-gtk-theme
+      libsForQt5.qtstyleplugin-kvantum
     ];
 
     programs.plasma = {

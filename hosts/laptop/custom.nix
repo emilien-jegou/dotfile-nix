@@ -14,6 +14,9 @@
     konsole
   ];
 
+
+  environment.variables = { "QT_STYLE_OVERRIDE" = "kvantum"; };
+
   # Install fonts
   fonts = {
     fonts = with pkgs; [

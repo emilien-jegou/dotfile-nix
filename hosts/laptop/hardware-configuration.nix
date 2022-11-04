@@ -57,16 +57,16 @@ in {
 
   services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.screenSection = ''
-      Option "nvidiaXineramaInfoOrder" "DP-4"
-      Option "metamodes" "DP-4: nvidia-auto-detect, DP-2: nvidia-auto-detect"
+      Option "nvidiaXineramaInfoOrder" "DP-1"
+      Option "metamodes" "DP-1: nvidia-auto-detect, HDMI-0: nvidia-auto-detect"
   '';
 
-  hardware.nvidia.powerManagement.enable = lib.mkForce false;
+  hardware.nvidia.powerManagement.enable = false;
 
   hardware.nvidia = {
     modesetting.enable = true;
     prime = {
-      sync.enable = false; # gpu always
+      sync.enable = true; # gpu always
       offload.enable = false; # gpu on demand
       #nvidiaBusId = "PCI:10:0:0"; #epgu
       nvidiaBusId = "PCI:1:0:0"; # dedicated gpu
