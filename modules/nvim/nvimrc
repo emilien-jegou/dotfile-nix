@@ -235,7 +235,7 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " TODO: install extension from coc configuration file
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 function! CocInstallExtensions()
-  CocInstall coc-eslint coc-json coc-emoji coc-tsserver coc-rls
+  CocInstall coc-eslint coc-json coc-emoji coc-tsserver coc-rls coc-phpls
 endfunction
 
 nmap <silent> , <Plug>(coc-codeaction-selected)<cr>
@@ -376,6 +376,8 @@ autocmd BufNewFile,BufRead *.txt setlocal textwidth=99
 autocmd BufNewFile,BufRead *.txt setlocal colorcolumn=100
 autocmd BufNewFile,BufRead *.txt setlocal textwidth=100
 
+""" git-messenger
+map qf <Plug>(git-messenger)
 
 
 """ vim-vue-plugin

@@ -8,6 +8,7 @@ in {
   config = mkIf cfg.enable {
 
     home.file.".config/git/gitmessage".source = ./gitmessage;
+    home.file.".config/git/scripts/easy_fixup".source = ./easy_fixup.sh;
 
     programs.git = {
       enable = true;
@@ -31,8 +32,7 @@ in {
         alias = {
           unstage = "reset HEAD --";
           uncommit = "reset --soft HEAD^";
-          fixup = "!~/.config/git/scripts/easy_fixup";
-          fx = "!~/.config/git/scripts/fixup_root";
+          fx = "!~/.config/git/scripts/easy_fixup";
           amend = "commit --amend";
           aa = "add --all";
           ap = "add --patch";

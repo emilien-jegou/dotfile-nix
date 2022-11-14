@@ -50,7 +50,7 @@ in {
       #toggldesktop
       zsh
       docker-compose
-      nodejs
+      nodejs-16_x
       rustup
     ];
   };

@@ -28,6 +28,7 @@ in {
      # .zshrc
      initExtra = ''
          export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store";
+         export PATH="$PATH:$HOME/.local/bin/";
      '';
 
      # path aliases: `cd ~dotfile` = `cd ~/.config/nixos`

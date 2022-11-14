@@ -1,6 +1,9 @@
 { config, pkgs, inputs, ... }:
 
 {
+
+  virtualisation.docker.enable = true;
+
     # Remove unecessary preinstalled packages
     environment.defaultPackages = [ ];
 
@@ -10,6 +13,7 @@
       tlp
       git
       nix-index
+      docker-compose
     ];
 
     # Nix settings, auto cleanup and enable flakes
@@ -28,6 +32,8 @@
       '';
     };
 
+    programs.ssh.startAgent = true;
+
     # Boot settings: clean /tmp/, latest kernel and enable bootloader
     boot = {
       cleanTmpDir = true;
@@ -36,19 +42,19 @@
           canTouchEfiVariables = true;
           efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
         };
-        #grub = {
-        #  enable = false;
-        #  efiSupport = true;
-        #  #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-        #  device = "nodev";
-        #};
-        systemd-boot.enable = true;
-        systemd-boot.editor = false;
-       timeout = 30;
-     };
-   };
+        grub = {
+          enable = true;
+          efiSupport = true;
+          #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
+          device = "nodev";
+        };
+        systemd-boot.enable = false;
+        #systemd-boot.editor = false;
+        timeout = 30;
+      };
+    };
 
-   boot.supportedFilesystems = [ "ntfs" ];
+    boot.supportedFilesystems = [ "ntfs" ];
 
     # Set up locales (timezone and keyboard layout)
     time.timeZone = "Europe/Paris";
@@ -61,7 +67,7 @@
     # Set up user and enable sudo
     users.users.emilien = {
       isNormalUser = true;
-      extraGroups = [ "input" "wheel" ];
+      extraGroups = [ "input" "wheel" "docker" ];
       shell = pkgs.zsh;
     };
 
@@ -95,7 +101,7 @@
 
     # Security
     security = {
-      sudo.enable = false;
+      sudo.enable = true;
       doas = {
         enable = true;
         extraRules = [{

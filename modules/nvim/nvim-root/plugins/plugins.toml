@@ -39,6 +39,9 @@ repo = 'rbgrouleff/bclose.vim'
 [[plugins]]
 repo = 'preservim/tagbar'
 
+[[plugins]]
+repo = 'rhysd/git-messenger.vim'
+
 #[[plugins]]
 #repo = 'Shougo/neosnippet.vim'
 

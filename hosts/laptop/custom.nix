@@ -16,8 +16,15 @@
 
   environment.systemPackages = with pkgs; [
     slack
+    openssl
+    jq
+    bash
+    shellcheck
+    obsidian
+    discord
+    postman
+    hamster
   ];
-
 
   environment.variables = { "QT_STYLE_OVERRIDE" = "kvantum"; };
 
@@ -37,6 +44,12 @@
       };
     };
   };
+
+  networking.extraHosts =
+  ''
+    127.0.0.1	platform.local
+    127.0.0.1	operator.platform.local
+  '';
 
   programs.zsh.enable = true;
   programs.dconf.enable = true;

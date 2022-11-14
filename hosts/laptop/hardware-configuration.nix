@@ -22,6 +22,7 @@ in {
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usbhid" ];
   boot.initrd.kernelModules = [ ];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "kvm-intel" ];
   nixpkgs.config.allowUnfree = true;
   boot.extraModulePackages = [
