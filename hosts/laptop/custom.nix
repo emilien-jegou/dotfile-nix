@@ -14,6 +14,10 @@
     konsole
   ];
 
+  environment.systemPackages = with pkgs; [
+    slack
+  ];
+
 
   environment.variables = { "QT_STYLE_OVERRIDE" = "kvantum"; };
 
