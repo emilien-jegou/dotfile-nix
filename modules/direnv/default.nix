@@ -4,7 +4,8 @@ with lib;
 let cfg = config.modules.direnv;
 
 in {
-  options.modules.direnv= { enable = mkEnableOption "direnv"; };
+  options.modules.direnv = { enable = mkEnableOption "direnv"; };
+  # TODO: duplicata
   config = mkIf cfg.enable {
     programs.direnv = {
       enable = true;

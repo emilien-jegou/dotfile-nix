@@ -67,10 +67,12 @@
         };
 
     in {
+      inputs.nixpkgs.config.allowUnfree = true;
       nixosConfigurations = {
         # Now, defining a new system is can be done in one line
-        #                                Architecture   Hostname
-        laptop = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
+        #                                   Architecture   Hostname
+        laptop    = mkSystem inputs.nixpkgs "x86_64-linux" "laptop";
+        thinkpad  = mkSystem inputs.nixpkgs "x86_64-linux" "thinkpad";
       };
     };
   }

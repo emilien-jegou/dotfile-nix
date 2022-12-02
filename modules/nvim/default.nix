@@ -16,18 +16,20 @@ in {
             repo = "dein.vim";
             rev = "2.2";
             sha256 = "/79sNwQ7NbJwiszGbxhavuY4/9BQzJpYCH+TcBZOnFw=";
-          };
-        };
-
-        home.packages = with pkgs; [
-            rnix-lsp nixfmt # Nix
-        ];
-
-        programs.neovim = {
-            enable = true;
-            plugins = with pkgs.vimPlugins; [
-                vim-nix
-            ];
         };
     };
+
+    home.packages = with pkgs; [
+        rnix-lsp
+        nixfmt
+        universal-ctags
+    ];
+
+    programs.neovim = {
+        enable = true;
+        plugins = with pkgs.vimPlugins; [
+            vim-nix
+        ];
+    };
+};
 }

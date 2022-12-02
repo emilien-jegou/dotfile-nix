@@ -4,5 +4,7 @@
 	"diagnostic.errorSign": "⚠",
 	"diagnostic.warningSign": "⚠",
 	"diagnostic.checkCurrentLine": false,
-	"diagnostic.format": "[%source] %message"
+	"diagnostic.format": "[%source] %message",
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+	"typescript.format.semicolons": "insert"
 }

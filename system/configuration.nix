@@ -4,6 +4,8 @@
 
   virtualisation.docker.enable = true;
 
+   nixpkgs.config.allowUnfree = true;
+
     # Remove unecessary preinstalled packages
     environment.defaultPackages = [ ];
 

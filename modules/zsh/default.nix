@@ -7,6 +7,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = [
       pkgs.zsh
+      pkgs.direnv
     ];
 
     home.file.".oh-my-zsh-custom/weynot.zsh-theme".source = ./weynot.zsh-theme;
@@ -29,6 +30,20 @@ in {
      initExtra = ''
          export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store";
          export PATH="$PATH:$HOME/.local/bin/";
+
+         eval "$(direnv hook zsh)"
+
+         # launch process in background
+         # nohup without the clutter
+         function nup {
+           echo Running "''${@[*]}"
+           nohup "''${@[*]}" </dev/null >/dev/null 2>&1 &
+           disown
+         }
+
+         function agf {
+            ag "''${@[*]}" | grep -v '^[0-9]' | grep -v '^$' | cut -d':' -f1 | uniq
+         }
      '';
 
      # path aliases: `cd ~dotfile` = `cd ~/.config/nixos`
@@ -67,8 +82,9 @@ in {
        grc = "git rebase --continue";
        nd = "nix develop -c $SHELL";
        hg = "history | grep";
+       n = "nup dolphin";
        rebuild = "doas nixos-rebuild switch --flake $NIXOS_CONFIG_DIR --fast; notify-send 'Rebuild complete\!'";
-      };
-    };
-  };
+     };
+   };
+ };
 }
