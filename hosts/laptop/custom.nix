@@ -24,12 +24,13 @@
     discord
     postman
     hamster
+    figma-linux
+    awscli2
     # dioxus
     dbeaver
     postgresql
     mysql
     sqlite
-    figma-linux
   ];
 
   environment.variables = { "QT_STYLE_OVERRIDE" = "kvantum"; };
