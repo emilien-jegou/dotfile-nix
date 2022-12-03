@@ -24,6 +24,12 @@
     discord
     postman
     hamster
+    # dioxus
+    dbeaver
+    postgresql
+    mysql
+    sqlite
+    figma-linux
   ];
 
   environment.variables = { "QT_STYLE_OVERRIDE" = "kvantum"; };

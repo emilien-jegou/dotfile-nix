@@ -235,7 +235,7 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " TODO: install extension from coc configuration file
 " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 function! CocInstallExtensions()
-  CocInstall coc-eslint coc-json coc-emoji coc-tsserver coc-rls coc-phpls
+  CocInstall coc-eslint coc-json coc-emoji coc-tsserver coc-rust-analyzer coc-phpls
 endfunction
 
 nmap <silent> , <Plug>(coc-codeaction-selected)<cr>
