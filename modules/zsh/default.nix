@@ -44,6 +44,10 @@ in {
          function agf {
             ag "''${@[*]}" | grep -v '^[0-9]' | grep -v '^$' | cut -d':' -f1 | uniq
          }
+
+         function ag_find_and_replace {
+            ag -0 -l "$1" | AGR_FROM="$1" AGR_TO="$2" xargs -r0 perl -pi -e 's/$ENV{AGR_FROM}/$ENV{AGR_TO}/g';
+         }
      '';
 
      # path aliases: `cd ~dotfile` = `cd ~/.config/nixos`

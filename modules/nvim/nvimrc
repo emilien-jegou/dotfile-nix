@@ -241,6 +241,9 @@ endfunction
 nmap <silent> , <Plug>(coc-codeaction-selected)<cr>
 xmap <silent> , <Plug>(coc-codeaction-selected)<cr>
 
+autocmd FileType rust map qd :Format<cr>
+"autocmd BufWritePre *.ts,*.tsx :CocCommand tsserver.organizeImports
+
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

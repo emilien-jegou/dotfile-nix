@@ -32,6 +32,7 @@
     php81Packages.composer
     gnome.gedit
     peek
+    patchage
   ];
 
   environment.variables = { "QT_STYLE_OVERRIDE" = "kvantum"; };
