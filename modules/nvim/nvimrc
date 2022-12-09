@@ -397,3 +397,4 @@ map qf <Plug>(git-messenger)
 "autocmd FileType dart map zr :FlutterRun<CR>
 "autocmd FileType dart map zs :FlutterVSplit<CR>
 
+hi default CocHintSign cterm=italic gui=italic guifg=#2E2E2E

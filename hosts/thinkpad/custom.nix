@@ -33,6 +33,7 @@
     gnome.gedit
     peek
     patchage
+    gcolor2
   ];
 
   environment.variables = { "QT_STYLE_OVERRIDE" = "kvantum"; };
