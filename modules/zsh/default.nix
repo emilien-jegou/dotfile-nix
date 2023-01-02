@@ -19,16 +19,22 @@ in {
       enableAutosuggestions = false;
       enableSyntaxHighlighting = true;
 
+      zplug = {
+        enable = true;
+        plugins = [
+          { name = "sobolevn/wakatime-zsh-plugin"; }
+        ];
+      };
+
       oh-my-zsh = {
         enable = true;
         theme = "weynot";
-        plugins = [ "git" "cp" "sudo" "tmux"];
+        plugins = [ "git" "cp" "sudo" "tmux" ];
         custom = "$HOME/.oh-my-zsh-custom";
       };
 
      # .zshrc
      initExtra = ''
-         export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store";
          export PATH="$PATH:$HOME/.local/bin/";
 
          eval "$(direnv hook zsh)"

@@ -10,7 +10,6 @@
 
       # gui
       firefox.enable = true;
-      termite.enable = true;
       alacritty.enable = true;
       tmux.enable = true;
       tig.enable = true;

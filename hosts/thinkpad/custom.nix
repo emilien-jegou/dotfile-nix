@@ -34,7 +34,15 @@
     peek
     patchage
     gcolor2
+    drawio
+    libreoffice
+    super-productivity
   ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-17.4.1" # super-productivity
+  ];
+
 
   environment.variables = { "QT_STYLE_OVERRIDE" = "kvantum"; };
 
@@ -56,11 +64,11 @@
   };
 
   networking.extraHosts =
-  ''
-    127.0.0.1	platform.local
-    127.0.0.1	operator.platform.local
-  '';
+    ''
+      127.0.0.1	platform.local
+      127.0.0.1	operator.platform.local
+    '';
 
-  programs.zsh.enable = true;
-  programs.dconf.enable = true;
-}
+    programs.zsh.enable = true;
+    programs.dconf.enable = true;
+  }

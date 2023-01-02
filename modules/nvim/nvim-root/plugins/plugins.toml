@@ -20,6 +20,10 @@ repo = 'xolox/vim-notes'
 
 [[plugins]]
 repo = 'brooth/far.vim'
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+
 #[[plugins]]
 #repo = 'ptzz/lf.vim'
 
