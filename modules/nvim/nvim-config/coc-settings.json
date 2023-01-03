@@ -12,5 +12,10 @@
 	"typescript.inlayHints.functionLikeReturnTypes.enabled": true,
 	"typescript.inlayHints.enumMemberValues.enabled": true,
 	"typescript.inlayHints.variableTypes.suppressWhenTypeMatchesName": true,
+	"rust-analyzer.enable": true,
+	"rust-analyzer.checkOnSave.enable": true,
+	"rust-analyzer.diagnostics.enable": true,
+	"rust-analyzer.diagnostics.warningsAsHint": ["unused_imports"],
+	"rust-analyzer.trace.server": "verbose",
 	"eslint.autoFixOnSave": true
 }
