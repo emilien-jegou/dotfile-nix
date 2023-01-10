@@ -37,6 +37,9 @@
     drawio
     libreoffice
     super-productivity
+    obs-studio
+    obs-studio-plugins.input-overlay
+
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

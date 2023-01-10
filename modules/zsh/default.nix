@@ -71,6 +71,7 @@ in {
      # Set some aliases
      shellAliases = {
        e = "$EDITOR";
+       ef = "$EDITOR $(fzf)";
        mkdir = "mkdir -vp";
        mkd = "mkdir -vp";
        rm = "rm -rifv";
